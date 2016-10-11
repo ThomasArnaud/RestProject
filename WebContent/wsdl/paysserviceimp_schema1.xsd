@@ -1,0 +1,39 @@
+<xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws/">
+  <xs:element name="getListeTousLesPays" type="tns:getListeTousLesPays"/>
+  <xs:element name="getListeTousLesPaysResponse" type="tns:getListeTousLesPaysResponse"/>
+  <xs:element name="getUnPays" type="tns:getUnPays"/>
+  <xs:element name="getUnPaysResponse" type="tns:getUnPaysResponse"/>
+  <xs:complexType name="getUnPays">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="nomp" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getUnPaysResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:pays"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pays">
+    <xs:sequence>
+      <xs:element name="nbhabitants" type="xs:float"/>
+      <xs:element minOccurs="0" name="nomCapitale" type="xs:string"/>
+      <xs:element minOccurs="0" name="nomPays" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getListeTousLesPays">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getListeTousLesPaysResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:pays"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MonException" type="tns:MonException"/>
+  <xs:complexType name="MonException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="unmessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="unType" type="xs:string"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

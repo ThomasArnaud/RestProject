@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="PaysServiceImpService" targetNamespace="http://ws/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://ws/" schemaLocation="paysserviceimp_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="MonException">
+    <wsdl:part name="MonException" element="tns:MonException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUnPays">
+    <wsdl:part name="parameters" element="tns:getUnPays">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListeTousLesPays">
+    <wsdl:part name="parameters" element="tns:getListeTousLesPays">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getListeTousLesPaysResponse">
+    <wsdl:part name="parameters" element="tns:getListeTousLesPaysResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getUnPaysResponse">
+    <wsdl:part name="parameters" element="tns:getUnPaysResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PaysService">
+    <wsdl:operation name="getUnPays">
+      <wsdl:input name="getUnPays" message="tns:getUnPays">
+    </wsdl:input>
+      <wsdl:output name="getUnPaysResponse" message="tns:getUnPaysResponse">
+    </wsdl:output>
+      <wsdl:fault name="MonException" message="tns:MonException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getListeTousLesPays">
+      <wsdl:input name="getListeTousLesPays" message="tns:getListeTousLesPays">
+    </wsdl:input>
+      <wsdl:output name="getListeTousLesPaysResponse" message="tns:getListeTousLesPaysResponse">
+    </wsdl:output>
+      <wsdl:fault name="MonException" message="tns:MonException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PaysServiceImpServiceSoapBinding" type="tns:PaysService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getUnPays">
+      <soap:operation soapAction="urn:GetUnPays" style="document"/>
+      <wsdl:input name="getUnPays">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUnPaysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MonException">
+        <soap:fault name="MonException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getListeTousLesPays">
+      <soap:operation soapAction="urn:GetListeTousLesPays" style="document"/>
+      <wsdl:input name="getListeTousLesPays">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getListeTousLesPaysResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MonException">
+        <soap:fault name="MonException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PaysServiceImpService">
+    <wsdl:port name="PaysServiceImpPort" binding="tns:PaysServiceImpServiceSoapBinding">
+      <soap:address location="http://localhost:8080/WSPAYSCFX/services/PaysServiceImpPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
